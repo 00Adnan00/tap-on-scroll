@@ -1,0 +1,23 @@
+name: tap_on_scroll
+description: >
+  A Flutter package that fixes the issue of missing tap events on scrollable items.
+  tap_on_scroll intercepts tap interactions during scrolling to ensure that widgets
+  receive reliable tap events even while the view is in motion.
+
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+
+flutter:
