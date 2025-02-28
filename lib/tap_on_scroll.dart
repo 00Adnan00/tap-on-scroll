@@ -6,11 +6,7 @@ class TapInterceptor extends StatefulWidget {
   final Widget child;
   final ScrollController scrollController;
 
-  const TapInterceptor({
-    super.key,
-    required this.child,
-    required this.scrollController,
-  });
+  const TapInterceptor({super.key, required this.child, required this.scrollController});
 
   @override
   State<TapInterceptor> createState() => _TapInterceptorState();
@@ -43,12 +39,8 @@ class _TapInterceptorState extends State<TapInterceptor> {
       final rect = area.getRect();
       if (rect.contains(tapPosition)) {
         // Optionally, simulate pointer events.
-        GestureBinding.instance.handlePointerEvent(
-          PointerDownEvent(position: tapPosition),
-        );
-        GestureBinding.instance.handlePointerEvent(
-          PointerUpEvent(position: tapPosition),
-        );
+        GestureBinding.instance.handlePointerEvent(PointerDownEvent(position: tapPosition));
+        GestureBinding.instance.handlePointerEvent(PointerUpEvent(position: tapPosition));
         area.onTap();
         break;
       }
@@ -72,10 +64,7 @@ class _TapInterceptorState extends State<TapInterceptor> {
 class _TapInterceptorScope extends InheritedWidget {
   final _TapInterceptorState state;
 
-  const _TapInterceptorScope({
-    required this.state,
-    required super.child,
-  });
+  const _TapInterceptorScope({required this.state, required super.child});
 
   static _TapInterceptorState? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<_TapInterceptorScope>()?.state;
@@ -90,11 +79,7 @@ class TappableArea extends StatefulWidget {
   final Widget child;
   final VoidCallback? onTap;
 
-  const TappableArea({
-    super.key,
-    required this.child,
-    this.onTap,
-  });
+  const TappableArea({super.key, required this.child, this.onTap});
 
   @override
   State<TappableArea> createState() => _TappableAreaState();
