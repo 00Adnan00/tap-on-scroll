@@ -1,3 +1,7 @@
+## 0.0.2+1
+
+- Fixed demo image not showing in README
+
 ## 0.0.2
 
 - Added documentation about critical use cases

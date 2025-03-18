@@ -1,12 +1,7 @@
 name: tap_on_scroll
-description: >
-  A Flutter package that fixes the issue of missing tap events on scrollable items.
-  tap_on_scroll intercepts tap interactions during scrolling to ensure that widgets
-  receive reliable tap events even while the view is in motion. Perfect for lists,
-  grids, and any scrollable widget where reliable touch interactions are critical.
-  Especially useful for PinnedHeaderSlivers that need to remain tappable during scroll.
+description: A Flutter package that ensures reliable tap events on scrollable widgets even during scroll motion. Perfect for lists, grids, and sliver widgets that need consistent touch interactions.
 
-version: 0.0.2
+version: 0.0.2+1
 homepage: https://github.com/00Adnan00/tap-on-scroll
 repository: https://github.com/00Adnan00/tap-on-scroll.git
 issue_tracker: https://github.com/00Adnan00/tap-on-scroll/issues
@@ -15,10 +10,10 @@ documentation: https://github.com/00Adnan00/tap-on-scroll#readme
 # Keywords help with discoverability on pub.dev
 topics:
   - scrolling
-  - gestures
-  - ui-interaction
-  - lists
-  - flutter
+  - tap-while-scrolling
+  - tappable-scroll
+  - tappable
+  - tap-on-scroll
 
 environment:
   sdk: ^3.7.0
@@ -32,5 +27,3 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: 5.0.0
-
-flutter: {}

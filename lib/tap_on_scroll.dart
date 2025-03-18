@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 /// A widget that intercepts taps and determines if a registered TappableArea was tapped.
