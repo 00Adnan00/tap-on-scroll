@@ -9,17 +9,9 @@ A Flutter package that solves the common issue of missed tap events on items whi
 
 Here's how tap_on_scroll solves the problem of unresponsive taps during scrolling:
 
-![tap_on_scroll demo](https://github.com/00Adnan00/tap-on-scroll/raw/main/assets/gifs/demo.gif)
+<img src="https://raw.githubusercontent.com/00Adnan00/tap-on-scroll/main/assets/gifs/dmo.gif" alt="tap_on_scroll demo" style="padding-left:60px; width:400px; height:auto;">
 
-_Left: Without tap_on_scroll - Taps are missed during scrolling. Right: With tap_on_scroll - Reliable tap detection even during active scrolling._
-
-### Critical Use Case: AppBar Actions During Scroll
-
-One of the most frustrating issues in Flutter apps is unresponsive AppBar action buttons during scroll momentum:
-
-![AppBar actions demo](https://github.com/00Adnan00/tap-on-scroll/raw/main/assets/gifs/appbar-actions.gif)
-
-_With tap_on_scroll, your AppBar actions remain consistently tappable even during active scrolling._
+_Demonstration of tap_on_scroll functionality showing how it ensures reliable tap detection even during active scrolling._
 
 ## 🚀 Features
 
