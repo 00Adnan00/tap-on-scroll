@@ -1,3 +1,7 @@
+## 0.0.2+2
+
+- Updated demo image size in README
+
 ## 0.0.2+1
 
 - Fixed demo image not showing in README
