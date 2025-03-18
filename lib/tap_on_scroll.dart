@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,9 @@ class _TapInterceptorState extends State<TapInterceptor> {
   // Use a Set to hold the currently registered tappable areas.
   final Set<_TappableAreaState> _registeredAreas = {};
 
+  // Flag to prevent recursive tap handling
+  bool _isHandlingTap = false;
+
   /// Called by TappableArea to register itself.
   void registerArea(_TappableAreaState area) {
     _registeredAreas.add(area);
@@ -27,21 +32,29 @@ class _TapInterceptorState extends State<TapInterceptor> {
 
   /// Handle a tap by checking all registered tappable areas.
   void _handleTapUp(TapUpDetails details) {
-    final tapPosition = details.globalPosition;
-    // Check each registered tappable area.
-    for (final area in _registeredAreas) {
-      final rect = area.getRect();
-      if (rect.contains(tapPosition)) {
-        // Simulate pointer events.
-        GestureBinding.instance.handlePointerEvent(
-          PointerDownEvent(position: tapPosition),
-        );
-        GestureBinding.instance.handlePointerEvent(
-          PointerUpEvent(position: tapPosition),
-        );
-        area.onTap();
-        break;
+    // Prevent recursive calls to avoid stack overflow
+    if (_isHandlingTap) return;
+
+    try {
+      _isHandlingTap = true;
+      final tapPosition = details.globalPosition;
+
+      // Check each registered tappable area.
+      for (final area in _registeredAreas.toList()) {
+        try {
+          final rect = area.getRect();
+          if (rect.contains(tapPosition)) {
+            // Directly call onTap without simulating pointer events
+            area.onTap();
+            break;
+          }
+        } catch (e) {
+          // Safely handle potential errors in getRect()
+          log('Error checking tappable area: $e');
+        }
       }
+    } finally {
+      _isHandlingTap = false;
     }
   }
 
@@ -91,7 +104,10 @@ class _TappableAreaState extends State<TappableArea> {
 
   /// Returns the global bounding rectangle of this widget.
   Rect getRect() {
-    final RenderBox box = context.findRenderObject() as RenderBox;
+    final RenderBox? box = context.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) {
+      return Rect.zero;
+    }
     final offset = box.localToGlobal(Offset.zero);
     return offset & box.size;
   }
