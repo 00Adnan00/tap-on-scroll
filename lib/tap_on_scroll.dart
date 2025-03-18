@@ -4,13 +4,8 @@ import 'package:flutter/material.dart';
 /// A widget that intercepts taps and determines if a registered TappableArea was tapped.
 class TapInterceptor extends StatefulWidget {
   final Widget child;
-  final ScrollController scrollController;
 
-  const TapInterceptor({
-    super.key,
-    required this.child,
-    required this.scrollController,
-  });
+  const TapInterceptor({super.key, required this.child});
 
   @override
   State<TapInterceptor> createState() => _TapInterceptorState();
@@ -32,17 +27,12 @@ class _TapInterceptorState extends State<TapInterceptor> {
 
   /// Handle a tap by checking all registered tappable areas.
   void _handleTapUp(TapUpDetails details) {
-    if (!widget.scrollController.hasClients) return;
-
-    // Prevent any scroll changes by jumping to the current offset.
-    widget.scrollController.jumpTo(widget.scrollController.offset);
-
     final tapPosition = details.globalPosition;
     // Check each registered tappable area.
     for (final area in _registeredAreas) {
       final rect = area.getRect();
       if (rect.contains(tapPosition)) {
-        // Optionally, simulate pointer events.
+        // Simulate pointer events.
         GestureBinding.instance.handlePointerEvent(
           PointerDownEvent(position: tapPosition),
         );
