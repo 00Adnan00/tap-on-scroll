@@ -9,7 +9,9 @@ A Flutter package that solves the common issue of missed tap events on items whi
 
 Here's how tap_on_scroll solves the problem of unresponsive taps during scrolling:
 
-<img src="https://raw.githubusercontent.com/00Adnan00/tap-on-scroll/main/assets/gifs/dmo.gif" alt="tap_on_scroll demo" style="padding-left:60px; width:200px; height:auto;">
+<div style="width:200px;">
+  <img src="https://raw.githubusercontent.com/00Adnan00/tap-on-scroll/main/assets/gifs/dmo.gif" alt="tap_on_scroll demo" style="width:100%; height:auto; padding-left:20px;">
+</div>
 
 _Demonstration of tap_on_scroll functionality showing how it ensures reliable tap detection even during active scrolling._
 
