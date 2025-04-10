@@ -30,7 +30,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  tap_on_scroll: ^0.0.2
+  tap_on_scroll: ^0.0.3
 ```
 
 Or install it directly from the command line:

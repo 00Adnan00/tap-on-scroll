@@ -1,7 +1,7 @@
 name: tap_on_scroll
 description: Flutter package for reliable tap events on scrollable widgets even during scroll motion. Perfect for lists, grids, and slivers.
 
-version: 0.0.2+3
+version: 0.0.3
 homepage: https://github.com/00Adnan00/tap-on-scroll
 repository: https://github.com/00Adnan00/tap-on-scroll.git
 issue_tracker: https://github.com/00Adnan00/tap-on-scroll/issues

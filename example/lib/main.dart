@@ -75,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildListExample() {
     return TapInterceptor(
+      scrollController: _scrollController,
       child: ListView.builder(
         controller: _scrollController,
         itemCount: 50,
@@ -101,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen>
     final ScrollController gridScrollController = ScrollController();
 
     return TapInterceptor(
+      scrollController: gridScrollController,
       child: GridView.builder(
         controller: gridScrollController,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -122,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen>
                   borderRadius: BorderRadius.circular(8),
                   color:
                       _tappedIndex == index
-                          ? Colors.blue.withOpacity(0.2)
+                          ? Colors.blue.withValues(alpha: 0.2)
                           : Colors.white,
                 ),
                 child: Column(
@@ -152,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen>
     final ScrollController pinnedController = ScrollController();
 
     return TapInterceptor(
+      scrollController: pinnedController,
       child: CustomScrollView(
         controller: pinnedController,
         slivers: [

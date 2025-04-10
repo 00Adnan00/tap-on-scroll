@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Get back to 0.0.1
+
 ## 0.0.2+3
 
 - Updated demo image size in README
